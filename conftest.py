@@ -15,6 +15,7 @@ def browser(request):
         browser = webdriver.Chrome(options=options)
     else:
         raise pytest.UsageError("--language should be specified")
+    browser.implicitly_wait(2)
     yield browser
     browser.quit()
 
